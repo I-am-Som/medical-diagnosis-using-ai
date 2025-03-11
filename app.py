@@ -18,7 +18,8 @@ st.markdown(hide_st_style, unsafe_allow_html=True)
 # Adding Background Image
 background_image_url = "https://www.strategyand.pwc.com/m1/en/strategic-foresight/sector-strategies/healthcare/ai-powered-healthcare-solutions/img01-section1.jpg"  # Replace with your image URL
 
-page_bg_img = f"""
+# Glassmorphism CSS
+glassmorphism_css = """
 <style>
 [data-testid="stAppViewContainer"] {{
 background-image: url({background_image_url});
@@ -35,11 +36,49 @@ top: 0;
 left: 0;
 width: 100%;
 height: 100%;
-background-color: rgba(0, 0, 0, 0.7);
+background-color: rgba(255, 255, 255, 0.1); /* Light background overlay */
+backdrop-filter: blur(10px); /* Blur effect */
+}}
+
+/* Glassmorphism effect for containers */
+.stButton > button, .stTextInput > div > div > input, .stNumberInput > div > div > input, .stSelectbox > div > div > select {{
+background: rgba(255, 255, 255, 0.2) !important;
+backdrop-filter: blur(10px) !important;
+border: 1px solid rgba(255, 255, 255, 0.3) !important;
+border-radius: 10px !important;
+color: white !important;
+}}
+
+.stButton > button:hover, .stTextInput > div > div > input:hover, .stNumberInput > div > div > input:hover, .stSelectbox > div > div > select:hover {{
+background: rgba(255, 255, 255, 0.3) !important;
+border: 1px solid rgba(255, 255, 255, 0.5) !important;
+}}
+
+/* Glassmorphism effect for titles and text */
+h1, h2, h3, h4, h5, h6, p, label, .stMarkdown {{
+color: white !important;
+}}
+
+/* Glassmorphism effect for dropdowns and other elements */
+.stSelectbox > div > div > div {{
+background: rgba(255, 255, 255, 0.2) !important;
+backdrop-filter: blur(10px) !important;
+border: 1px solid rgba(255, 255, 255, 0.3) !important;
+border-radius: 10px !important;
+color: white !important;
+}}
+
+/* Glassmorphism effect for success messages */
+.stAlert {{
+background: rgba(255, 255, 255, 0.2) !important;
+backdrop-filter: blur(10px) !important;
+border: 1px solid rgba(255, 255, 255, 0.3) !important;
+border-radius: 10px !important;
+color: white !important;
 }}
 </style>
 """
-st.markdown(page_bg_img, unsafe_allow_html=True)
+st.markdown(glassmorphism_css.format(background_image_url=background_image_url), unsafe_allow_html=True)
 
 # Load the saved models
 models = {
